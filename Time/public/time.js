@@ -15,7 +15,7 @@ function formatTime(time) {
     return time;
 }
 
-
+//Something
 //Updates time & displays
 function updateTime() {
     const date = new Date();

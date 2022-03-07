@@ -32,6 +32,11 @@ p1{
     font-family: Open sans-serif ;
 }
 
+p2{
+    font-family: Consolas;
+    background-color: lightgray;
+}
+
 a{
     font-family: Comic Sans MS;
 }
@@ -66,9 +71,13 @@ li a:hover:not(.active) {
 }
 
 .box-bottom-shadow {
-	-webkit-box-shadow: 0 7px 5px -4px black;
-	   -moz-box-shadow: 0 7px 5px -4px black;
-	        box-shadow: 0 7px 5px -4px black;
+	-webkit-box-shadow: 0 7px 4.5px -3px rgb(6, 53, 2);
+	   -moz-box-shadow: 0 7px 4.5px -3px rgb(15, 53, 3);
+	        box-shadow: 0 7px 4.5px -3px black;
+}
+
+.navPadding{
+    padding: 10px;
 }
 
 #frontpageDiv{
@@ -111,6 +120,8 @@ li a:hover:not(.active) {
     position: absolute;
     width: 300px;
     height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 #callbacks{
@@ -146,6 +157,8 @@ li a:hover:not(.active) {
     right: 41%;
     width: 300px;
     height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 #get{

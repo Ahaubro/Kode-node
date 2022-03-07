@@ -17,9 +17,9 @@
 
     </p>
     <br/>
-    <nav>
-        <li>npm install -g nodemon - Terminal command</li>
-        <li>npx nodemon - To run nodemon</li>
+    <nav class="navPadding">
+        <li> <p2> npm install -g nodemon</p2></li>
+        <li> <p2> npx nodemon </p2></li>
 
     </nav>
 
@@ -31,8 +31,14 @@
 
     <h3>Implement a RestAPI</h3>
 
-    <p> The link will take you to my RestAPI about beers on github,
-        where you can see how to implement a RestAPI with GET, POST, PUT, PATCH & DELETE methods.
+    <p> When implementing a RestApi it needs to be possible to make CRUD operations.
+        This is why it is neccesary to make the methods I mentioned in <a href="/one">Session 1 - Rest Api</a>.
+
+        This link will take you to my RestAPI about beers on github,
+        where you can see how to implement a RestAPI with GET(findAll & findByID), 
+        POST(Create), PUT(Update object), PATCH(Update object partially) & DELETE methods.
+        In this project you will find a PATCH and a PUT method, but we have learned that it is not
+        necessary to have both.
         <a target="_blank" href="https://github.com/Ahaubro/Kode-node/blob/master/RestAPI/beers.js">https://github.com/Ahaubro/Kode-node/blob/master/RestAPI/beers.js</a>
     </p>
 
@@ -44,10 +50,14 @@
 
     <p> When sending data to our server with a GET method,
         we need to use a pathvariable or a query String to send data. 
-        <nav>
-            <li>Path variable - We can use a path variable in our endpoint, by adding it to the path after -> "app.get('/beers/:id', (req, res) =>"</li>
-            <li>Query String - We can use a query String, by using key & value in a url. When our path ends, we can write the query String
-                ?key=value&key2=value2
+        <nav class="navPadding">
+            <li>
+                Path variable - We can use a path variable in our endpoint, by adding it to the path: 
+                <p2> app.get('/beers/:id', (req, res) => </p2>
+
+            </li>
+            <li>Query String - We can use a query String, by using key & value in a url. When our path ends, 
+                we can write the query String <p2> ?key=value&key2=value2 </p2>
             </li>
 
         </nav>

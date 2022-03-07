@@ -14,7 +14,7 @@
        Here is som rules to remember: 
     </p>
 
-    <nav>
+    <nav class="navPadding">
         <li>Structure is key</li>
         <li>Name variables so they make sense</li>
     </nav>
@@ -27,14 +27,22 @@
     <h3>Callbacks</h3>
 
     <p>There are three ways to define a callback function in JS.
-        <nav>
-            <li>Arrow function - app.get("/", (req, res) => {
+        <nav class="navPadding">
+            <li> Arrow function:
+                <p2>app.get("/", (req, res) => {
                 res.send(frontpagePage);
-            }); - This is a simple arrow callback, where the method body is defined in the {}
-            after the arrow "=>".</li>
-            <li>Anonymous function - app.get("/terminalCommands", function (req, res) {
-                res.send(terminalCommandsPage);
-            })</li>
+                });
+                </p2>
+             - This is a simple arrow callback, where the method body is defined in the {}
+            after the arrow "=>".
+            </li>
+
+            <li>Anonymous function: 
+                <p2> app.get("/terminalCommands", function (req, res) {
+                res.send(terminalCommandsPage); 
+                 })
+                </p2>
+            </li>
             <li>Named function refference - By using the name of a predefined named function.</li>
         </nav>
     </p>
@@ -52,15 +60,45 @@
         Then create an app.js file in the project folder. This file needs to contain the following: 
     </p>
     <br/>
-    <nav>
-        <li>const express = require("express"); -Imports the express module</li>
-        <li>const app = express(); - Creates a server object</li>
-        <li>PORT = 9999; - Making a variable which contains the port</li>
-        <li>app.listen(PORT, (error) => {
-            console.log("Server running on port: " + PORT)
+    <nav class="navPadding">
+        <li> <P2>const express = require("express"); </P2> -Imports the express module</li>
+        <li> <P2>const app = express(); </P2> - Creates a server object</li>
+        <li> <P2>PORT = 9999; </P2> - Making a variable which contains the port</li>
+        <li> <P2>app.listen(PORT, (error) => {
+            console.log("Server running on port: " + PORT)</P2>
         }) - Sets the port when the file is executed, with a message</li>
     </nav>
 
-    <p>I can now use my app object to make GET, POST, etc. methods or send html files.</p>
+    <p>I can now use my app object to make GET, POST, etc. methods or send html files. In the first code snippet below
+        there is an example of a GET(findAll) from my beers.js RestApi. I define a path for my app.get, and then make an arrow 
+        function with request and response and inside define the body. In this example I send an array containing all beers. 
+    </p>
+
+    <nav class="navPadding">
+        <li> 
+            <p2>
+                app.get('/beers', (req, res) =>{
+                const arrayJSON = JSON.stringify(beers)
+                res.status(200).send('All beers: ' + arrayJSON)
+                })
+            </p2>
+        </li>
+    </nav>
+
+    <br/>
+
+    <p>
+        In this simple example i send a html file:
+
+        <nav class="navPadding">
+            <li> 
+                <p2>
+                    app.get("/", (req, res) => {
+                        res.sendFile(__dirname + "/public/index.html");
+                    });
+                </p2>
+            </li>
+        </nav>
+    </p>
 
 </div>

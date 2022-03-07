@@ -71,9 +71,9 @@ li a:hover:not(.active) {
 }
 
 .box-bottom-shadow {
-	-webkit-box-shadow: 0 7px 4.5px -3px rgb(6, 53, 2);
-	   -moz-box-shadow: 0 7px 4.5px -3px rgb(15, 53, 3);
-	        box-shadow: 0 7px 4.5px -3px black;
+	-webkit-box-shadow: 0 6px 4.5px -3px rgb(0, 0, 0);
+	   -moz-box-shadow: 0 6px 4.5px -3px rgb(0, 0, 0);
+	        box-shadow: 0 6px 4.5px -3px black;
 }
 
 .navPadding{

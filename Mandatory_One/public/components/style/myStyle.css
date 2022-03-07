@@ -183,4 +183,6 @@ li a:hover:not(.active) {
     right: 36%;
     width: 500px;
     height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
 }

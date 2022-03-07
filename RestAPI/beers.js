@@ -98,3 +98,5 @@ app.get("/client", (req, res) => {
 // url: whatever/whatever/1 - første måde = Path variable
 
 //query string      url: ?key=value&key2=value2  BEGGE MÅDER ER I URL, man kan ikke sende data i body i en get request
+
+//Nyt

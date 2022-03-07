@@ -1,0 +1,165 @@
+body{
+    background-image: url("background.jpg");
+    background-position: bottom;
+    background-size: 1350px, 1150px;
+}
+
+h1{
+    text-align: center;
+    font-size: 40px;
+    font-family: Open sans-serif ;
+}
+
+h2{
+    text-align: center;
+    font-size: 25px;
+    font-family: Open sans-serif ;
+}
+
+h3{
+    text-align: center;
+    font-size: 19px;
+    font-family: Open sans-serif ;
+}
+
+p{
+    text-align: center;
+    hyphens: auto;
+}
+
+p1{
+    font-family: Open sans-serif ;
+}
+
+a{
+    font-family: Comic Sans MS;
+}
+
+body{
+    background-color: lightgreen;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(36, 173, 43);
+    width: 100%
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 41px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: rgb(174, 180, 212);
+}
+
+#frontpageDiv{
+    position: absolute;
+    right: 43%;
+    bottom: 40%;
+    text-align: center;
+    width: 250px;
+    height: 100px;
+}
+
+/* Session 1 - one.html */
+
+#variableDiv{
+    position: absolute;
+    width: 250px;
+
+}
+
+#introDiv{
+    position: absolute;
+    right: 17%;
+    width: 250px;
+}
+
+#restApi{
+    position: absolute;
+    right: 41.5%;
+    width: 250px;
+    height: 300px;
+    width: 270px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+/* Session two: two.html */
+
+#cleanCode{
+    position: absolute;
+    width: 250px;
+}
+
+#callbacks{
+    position: absolute;
+    right: 41.5%;
+    height: 300px;
+    width: 270px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#express{
+    position: absolute;
+    right: 17%;
+    width: 250px;
+}
+
+/* Session 3 - three.html */
+
+#nodemon{
+    position: absolute;
+    width: 250px;
+}
+
+#implementRest{
+    position: absolute;
+    right: 43%;
+    width: 250px;
+}
+
+#get{
+    position: absolute;
+    right: 17%;
+    width: 250px;
+}
+
+/* Session 4 - four.html*/
+
+#staticFiles{
+    position: absolute;
+    left: 28%;
+    width: 320px;
+}
+
+#implementSSR{
+    position: absolute;
+    right: 28%;
+    height: 300px;
+    width: 320px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+/* Terminal commands - terminalCommands.html*/
+
+#commands{
+    position: absolute;
+    right: 39%;
+    width: 400px;
+}

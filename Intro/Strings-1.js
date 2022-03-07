@@ -2,6 +2,10 @@
 // Exercise 1 - Add numbers from string to float
 
 const numberOne = "1.10";
+const someString = "Hello";
+
+
+
 const numberTwo = "2.30";
 
 // add those two numbers and show the result

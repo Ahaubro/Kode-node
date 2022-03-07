@@ -1,0 +1,48 @@
+<br/>
+
+<h2>Session four: SSR</h2>
+
+<br/>
+<br/>
+
+
+<div id="staticFiles">
+
+    <h3>Static files in Express</h3>
+
+    <p> "Express, by default does not allow you to serve static files. 
+        You need to enable it using the following built-in middleware."
+
+        In the line below, you can see a code example of how we can serve static files in Express.
+
+        <br/>
+
+        app.use(express.static("public"));
+
+        This will allow us to serve static files in our public folder.
+
+
+        For more information, visit the link:
+        <a href="https://www.tutorialspoint.com/expressjs/expressjs_static_files.htm"> More information</a>
+
+    </p>
+
+</div>
+
+
+<div id="implementSSR">
+
+    <h3>Implement SSR project</h3>
+
+    <p> In my file "app.js" in this project, i have implemted SSR, by creating a components folder
+        containing my nav.html (My nav bar & header) and my footer.html. This structure makes it possible for all
+        my html files to use this header and footer. I have also made a replaceable title that we learned in class by adding %%TITLE_PLACEHOLDER%% in my nav title:
+
+        In the following lines i will show a code snippet, that changes the title for my session one page(one.html):
+        <br/>
+        const pageOne = nav.replace("%%TITLE_PLACEHOLDER%%", "Intro") + one + footer;
+
+
+    </p>
+
+</div>

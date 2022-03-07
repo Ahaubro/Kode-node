@@ -5,7 +5,7 @@
 <br/>
 <br/>
 
-<div id="cleanCode">
+<div id="cleanCode" class="box-bottom-shadow">
     <h3>Clean code and code conventions</h3>
 
     <p>Clean code is important, because of many reasons.
@@ -23,7 +23,7 @@
 </div>
 
 
-<div id="callbacks">
+<div id="callbacks" class="box-bottom-shadow">
     <h3>Callbacks</h3>
 
     <p>There are three ways to define a callback function in JS.
@@ -42,14 +42,25 @@
 </div>
 
 
-<div id="express">
+<div id="express" class="box-bottom-shadow">
     <h3>Create a server with Express</h3>
 
     <p>To create a server with Express, we first make a new project,
         and create a package.json file, which contains a pair of empty
         curly brackets. We then type npm install express in the console.
         When npm finishes the installation, we will have a folder "node modules" and a package lock file.
-        Then i will start on my app.js file, see the code snips below. 
+        Then create an app.js file in the project folder. This file needs to contain the following: 
     </p>
+    <br/>
+    <nav>
+        <li>const express = require("express"); -Imports the express module</li>
+        <li>const app = express(); - Creates a server object</li>
+        <li>PORT = 9999; - Making a variable which contains the port</li>
+        <li>app.listen(PORT, (error) => {
+            console.log("Server running on port: " + PORT)
+        }) - Sets the port when the file is executed, with a message</li>
+    </nav>
+
+    <p>I can now use my app object to make GET, POST, etc. methods or send html files.</p>
 
 </div>

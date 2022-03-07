@@ -5,7 +5,7 @@
 <br/>
 <br/>
 
-<div id="introDiv">
+<div id="introDiv" class="box-bottom-shadow">
     <h3>Node.js intro</h3>
 
     <br/>
@@ -13,19 +13,22 @@
     <p>"Node.js is an open-source and cross-platform JavaScript runtime environment. 
        It is a popular tool for almost any kind of project!
        Node.js runs the V8 JavaScript engine, the core of Google Chrome,
-       outside of the browser. This allows Node.js to be very performant."</p>
+       outside of the browser. This allows Node.js to be very performant."
        <a href="https://nodejs.dev/learn" target="_blank">Click me for more information</a>
+    </p>
 </div>
 
 
-<div id="variableDiv">
+<div id="variableDiv" class="box-bottom-shadow">
     <h3>Variables in JS</h3>
-
-    <br/>
 
     <p> 
     In JS you dont have to declare the variables type like int, String etc. Instead we can use either
     const or let. Learn more in the link below.
+    </p>
+    <br/>
+    <p>const a = 1; - Variable a's value = 1.
+        const b = "Hello"; - Variable b contains the String "Hello".
     </p>
 
     <a href="https://www.w3schools.com/js/js_variables.asp" target="_blank">Click me for more information</a>
@@ -33,13 +36,10 @@
 </div>
 
 
-<div id="restApi">
+<div id="restApi" class="box-bottom-shadow">
     <h3>Rest API</h3>
 
-    <br/>
-
-    <p>There is some conventions when it comes to Rest Api. When you make an endpoint folow these rules:
-        And remember - Ressource names should be nouns in plural.
+    <p>There is some conventions when it comes to Rest Api. When you make an endpoint it is important to include these methods:
 
         <nav>
             <li>Get all - GET without ID</li>
@@ -47,6 +47,17 @@
             <li>Create new - POST without ID</li>
             <li>Update ressource - PUT with ID</li>
             <li>Update ressource partially- PATCH with ID</li>
+        </nav>
+    </p>
+
+    
+
+    <p>A RestApi should also meet the following conventions:
+        <nav>
+            <li>Ressource type should be a noun.</li>
+            <li>Endpoints ressource type should be a noun in plural.</li>
+            <li>Each ressource should have an id assignt when created</li>
+            <li>A ressource id should never be changed.</li>
         </nav>
     </p>
     

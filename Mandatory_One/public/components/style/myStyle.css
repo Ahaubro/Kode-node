@@ -25,6 +25,7 @@ h3{
 p{
     text-align: center;
     hyphens: auto;
+    padding: 10px;
 }
 
 p1{
@@ -64,35 +65,42 @@ li a:hover:not(.active) {
     background-color: rgb(174, 180, 212);
 }
 
+.box-bottom-shadow {
+	-webkit-box-shadow: 0 7px 5px -4px black;
+	   -moz-box-shadow: 0 7px 5px -4px black;
+	        box-shadow: 0 7px 5px -4px black;
+}
+
 #frontpageDiv{
     position: absolute;
     right: 43%;
     bottom: 40%;
     text-align: center;
     width: 250px;
-    height: 100px;
 }
 
 /* Session 1 - one.html */
 
 #variableDiv{
     position: absolute;
-    width: 250px;
-
+    width: 300px;
+    height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 #introDiv{
     position: absolute;
-    right: 17%;
-    width: 250px;
+    right: 17.5%;
+    width: 300px;
+    height: 300px;
 }
 
 #restApi{
     position: absolute;
-    right: 41.5%;
-    width: 250px;
+    right: 41%;
+    width: 300px;
     height: 300px;
-    width: 270px;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -101,41 +109,52 @@ li a:hover:not(.active) {
 
 #cleanCode{
     position: absolute;
-    width: 250px;
+    width: 300px;
+    height: 300px;
 }
 
 #callbacks{
     position: absolute;
-    right: 41.5%;
+    right: 41%;
     height: 300px;
-    width: 270px;
+    width: 300px;
     overflow: scroll;
     overflow-x: hidden;
 }
 
 #express{
     position: absolute;
-    right: 17%;
-    width: 250px;
+    right: 17.5%;
+    width: 300px;
+    height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 /* Session 3 - three.html */
 
 #nodemon{
     position: absolute;
-    width: 250px;
+    width: 300px;
+    height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 #implementRest{
     position: absolute;
-    right: 43%;
-    width: 250px;
+    right: 41%;
+    width: 300px;
+    height: 300px;
 }
 
 #get{
     position: absolute;
-    right: 17%;
-    width: 250px;
+    right: 17.5%;
+    width: 300px;
+    height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 /* Session 4 - four.html*/
@@ -144,6 +163,7 @@ li a:hover:not(.active) {
     position: absolute;
     left: 28%;
     width: 320px;
+    height: 300px;
 }
 
 #implementSSR{
@@ -160,6 +180,7 @@ li a:hover:not(.active) {
 
 #commands{
     position: absolute;
-    right: 39%;
-    width: 400px;
+    right: 36%;
+    width: 500px;
+    height: 300px;
 }

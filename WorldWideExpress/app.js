@@ -20,3 +20,6 @@ app.get("/welcome", (req, res) => {
     <h1>Welcome to my website<h1/>
     `)
 })
+
+
+app.get()

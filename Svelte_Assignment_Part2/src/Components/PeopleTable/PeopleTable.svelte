@@ -60,7 +60,7 @@
     button{
         position: absolute;
         left: 50%;
-        top: 92%;
+        top: 95%;
         transform: translate(-50%, 0);
         display:inline-block;
         padding: 0.35em 1.2em;
@@ -73,7 +73,7 @@
         font-weight: 300;
         color: #0f0f0f;
         text-align: center;
-        transition: all 0.5s;
+        transition: all 0.3s;
         background-color: rgb(208, 113, 221);
     }
 

@@ -8,10 +8,6 @@
     "start": "sirv public --no-clear"
   },
   "devDependencies": {
-<<<<<<< HEAD
-=======
-    "@faker-js/faker": "^6.0.0-beta.0",
->>>>>>> b8b736ec9802461c6bf406dd1c55c21ce1922926
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "rollup": "^2.3.4",

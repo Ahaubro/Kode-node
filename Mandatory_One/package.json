@@ -10,7 +10,7 @@
   "description": "",
   "dependencies": {
     "express": "^4.17.3",
-    "nodemon": "^2.0.15",
-    "heroku": "^7.59.2"
+    "heroku": "^7.59.2",
+    "nodemon": "^2.0.15"
   }
 }

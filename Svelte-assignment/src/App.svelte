@@ -122,6 +122,16 @@
 		alert('Clicked - This button loves clicking')
 	}
 
+	import Toast from "./pages/Toast.svelte"
+
+	import {dismissToast, toasts, addToast} from "./store.js"
+
+	let message = "Hello, World!";
+  let types = ["success", "error", "info"];
+  let type = "success";
+  let dismissible = true;
+  let timeout = 0;
+
 
 
 
@@ -282,6 +292,46 @@
 
 
 	<!-- DOM end-->
+
+	<Toast />
+
+<form on:submit|preventDefault>
+  <p>
+    <label>
+      Message:
+      <input bind:value={message} />
+    </label>
+  </p>
+  <p>
+    <label>
+      Timeout:
+      <input bind:value={timeout} type="number" />
+    </label>
+  </p>
+  <p>
+    <label>
+      Type:
+      <select bind:value={type}>
+        {#each types as type}
+          <option value={type}>{type}</option>
+        {/each}
+      </select>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input bind:checked={dismissible} type="checkbox" />
+      Dismissible?
+    </label>
+  </p>
+  <button on:click={() => addToast({ message, type, dismissible, timeout })}>
+    Add toast
+  </button>
+</form>
+
+
+
+
 
 </main>
 

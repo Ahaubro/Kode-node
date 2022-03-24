@@ -1,9 +1,15 @@
 const express = require ('express')
 const bp = require('body-parser')
 const app = express()
+const cors = require('cors')
 
 app.use(bp.json())
 app.use(bp.urlencoded({ extended: true }))
+app.use(cors({
+    origin: '*'
+}));
+
+
 
 
 let nextId = 2
@@ -20,7 +26,7 @@ let beers = [beerOne]
 // Find all beers
 app.get('/beers', (req, res) =>{
     const arrayJSON = JSON.stringify(beers)
-    res.status(200).send('All beers: ' + arrayJSON)
+    res.status(200).send(arrayJSON)
 })
 
 // Find beer by id

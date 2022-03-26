@@ -7,12 +7,15 @@
 	import Products from "./pages/Products.svelte";
 
 	
+	
 </script>
 
 <main>
 	<img src="/images/baggrund.jpg" alt="background">
 
 	<h1 class="multicolortext">KEAs online kiosk - Køb nu og få op til 20% rabat </h1>
+
+
 
 
 	<Router>

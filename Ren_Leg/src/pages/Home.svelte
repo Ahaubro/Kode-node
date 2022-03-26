@@ -1,6 +1,27 @@
+<script>
+    import {notifications} from "../notifications.js"
+	import Toast from "./Toast.svelte"
+    import {clickOutside} from "../scripts/clickOutside.js"
+
+    //For at displaye min notification når vinduet bliver loadet
+    window.onload = () => {notifications.info('Lav en profil og få en masse fordele samt 10% rabat på dit første køb!')}
+</script>
+
+
+
 <h1 class="multicolortext">
     Velommen til KEAs online kiosk!
 </h1>
+
+<!--Leg med toast starter her-->
+
+
+	<Toast/>
+
+
+<!--Leg med toast slutter her-->
+
+
 
 <h3 class="multicolortext">
     Surf thorugh all of our products so you can get whatever you feel like!

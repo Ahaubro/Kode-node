@@ -25,7 +25,10 @@
             return storeValue;
         });
     }
+
 </script>
+
+
 
 
 
@@ -42,6 +45,7 @@
                 <img src={product.imagePath} alt={product.name}>
                 <h3>{product.name}</h3>
                 <h3>{product.price} DKK</h3>
+                <p>{product.description} </p>
                 <button on:click={ () => addProductToBasket(product)}>Tilføj til kurv</button>
             </div>
         </div>

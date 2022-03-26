@@ -18,10 +18,13 @@
 
         <div class="card">
             <div class="container">
+                <h3>Indkøbskurv</h3>
                 <img src={product.product.imagePath} alt={product.product.name}>
-                <h3>{product.product.name}</h3>
-                <h3>{product.product.price} DKK</h3>
-                <span>{product.amount}</span>
+                <h3> {product.product.name}</h3>
+                <hr>
+                <h3>Pris: {product.product.price} DKK</h3>
+                <hr>
+                <span>Antal: {product.amount}</span>
                 
             </div>
         </div>
@@ -33,7 +36,17 @@
 <style>
 
     img{
-        height: 75px;
+        height: 85px;
+    }
+
+    .card{
+        border: 1px solid black;
+        width: 25%;
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        transform: translateX(-50%);
+
     }
 
 

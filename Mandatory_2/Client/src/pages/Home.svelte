@@ -13,13 +13,13 @@
     Velommen til KEAs online kiosk!
 </h1>
 
-<!--Leg med toast starter her-->
+<!--Toast starter her-->
 
 
 	<Toast/>
 
 
-<!--Leg med toast slutter her-->
+<!--Toast slutter her-->
 
 
 

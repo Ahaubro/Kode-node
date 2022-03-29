@@ -49,14 +49,15 @@
 
     // Function der fetcher produkter fra mit endpoint
     async function loadAll() {
-        const res = await fetch(`http://localhost:8181/`);
-        products = await res.json();
+        const res = await fetch(`/api/products`);
+        const { data:productsArr } = await res.json();
+        products = productsArr;
     }
 
 
     // Function der sender et post request til mit endpoint - LAV DETTE I EN MODAL
     async function createProduct() {
-        const res = await fetch(`http://localhost:8181/products`, {
+        const res = await fetch(`/api/products`, {
             headers: {
                 'content-type': 'application/json'
             },
@@ -71,7 +72,7 @@
     //Function der sender et delete request til mit endpoint
     async function deleteProduct(id) {
         id = Number(id);
-        const res = await fetch(`http://localhost:8181/products/${id}`, {
+        const res = await fetch(`/api/products/${id}`, {
             headers: {
                 'content-type': 'application/json'
             },
@@ -83,7 +84,7 @@
     //Function der sender et PUT request til mit endpoint
     async function editProduct(product) {
         const id = Number(product.id);
-        const res = await fetch(`http://localhost:8181/products/${id}`, {
+        const res = await fetch(`/api/products/${id}`, {
             headers: {
                 'Accept': 'applictation/json',
                 'content-type': 'application/json'

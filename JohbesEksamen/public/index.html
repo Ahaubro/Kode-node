@@ -11,7 +11,10 @@
 
     Patientens vægt: <input type="number" id="myNum">
 
-    <p id="result"></p>
+    
+    <hr>
+
+    Efter regnestykket: <p id="result"></p>
     
     <button onclick="myFunction()">Submit</button>
 
@@ -23,11 +26,11 @@
 
 <script>
     function myFunction() {
-      const x = document.getElementById("myNum").value;
+      let x = document.getElementById("myNum").value;
 
-      x = x + 1;
+      x = Number(x) / 3.17;
       
-      console.log(x)
+      document.getElementById("result").innerText = x
     }
 </script>
 

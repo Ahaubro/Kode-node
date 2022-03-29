@@ -7,8 +7,9 @@
     let products = [];
 
     onMount(async () => {
-        const res = await fetch(`http://localhost:8181/`);
-        products = await res.json();
+        const res = await fetch("/api/products");
+        const { data:productsArr } = await res.json();
+        products = productsArr;
     })
 
     // Function der tilføjer et produkt til min kurv
@@ -33,6 +34,7 @@
 
 
 <h1 class="multicolortext">Tilgængelige produkter</h1>
+
 
 
 

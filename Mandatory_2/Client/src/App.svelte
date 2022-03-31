@@ -5,6 +5,9 @@
 	import Checkout from "./pages/Checkout.svelte";
 	import Home from "./pages/Home.svelte"
 	import Products from "./pages/Products.svelte";
+	import Signup from "./pages/Signup.svelte";
+	import Logout from "./pages/Logout.svelte";
+	import AdminLogin from "./pages/AdminLogin.svelte";
 
 	
 	
@@ -13,7 +16,7 @@
 <main>
 	<img src="/images/baggrund.jpg" alt="background">
 
-	<h1 class="multicolortext">KEAs online kiosk - Køb nu og få op til 20% rabat </h1>
+	<h1 class="multicolortext">KEAs online kiosk </h1>
 
 
 
@@ -35,12 +38,21 @@
 				</div>
 
 				<div class="link-wrapper">
-					<li><Link to="/admin" > Admin side </Link></li>
+					<li><Link to="/adminLogin" > Admin side </Link></li>
 				</div>
 
 				<div class="link-wrapper">
 					<li><Link to="/checkout" > Kurv </Link></li>
 				</div>
+
+				<div class="link-wrapper">
+					<li><Link to="/signup" > Sign up & login </Link></li>
+				</div>
+
+				<div class="link-wrapper">
+					<li><Link to="/logout" > Logout </Link></li>
+				</div>
+				
 				
 			</ul>
 		</nav>
@@ -48,14 +60,17 @@
 		<Route path="/about" component={About}></Route>
 		<Route path="/" component={Home}></Route>
 		<Route path="/products" component={Products}></Route>
-		<Route path="/admin" component={Admin}></Route>
+		<Route path="/adminLogin" component={AdminLogin}></Route>
 		<Route path="/checkout" component={Checkout}></Route>
+		<Route path="/signup" component={Signup}></Route>
+		<Route path="/logout" component={Logout}></Route>
+		<Route path="/admin" component={Admin}></Route>
+
 
 		
 
 
 	</Router>
-
 
 
 

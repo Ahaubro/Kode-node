@@ -4,7 +4,7 @@
     import {clickOutside} from "../scripts/clickOutside.js"
 
     //For at displaye min notification når vinduet bliver loadet
-    window.onload = () => {notifications.info('Lav en profil og få en masse fordele samt 10% rabat på dit første køb!')}
+    window.onload = () => {notifications.info('Opret en profil nu og få en masse fordele samt 10% rabat på dit første køb!')}
 </script>
 
 
@@ -13,13 +13,17 @@
     Velommen til KEAs online kiosk!
 </h1>
 
+<hr>
+
+
 <!--Toast starter her-->
 
 
-	<Toast/>
+<Toast/>
 
 
 <!--Toast slutter her-->
+
 
 
 
@@ -30,7 +34,6 @@
 <div>
 <img src="/images/home.jpg" alt="Welcome"/>
 </div>
-
 
 
 

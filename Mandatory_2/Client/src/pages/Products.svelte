@@ -6,11 +6,13 @@
 
     let products = [];
 
+    // Fetcher produkter fra min server
     onMount(async () => {
         const res = await fetch("/api/products");
         const { data:productsArr } = await res.json();
         products = productsArr;
     })
+    
 
     // Function der tilføjer et produkt til min kurv
     function addProductToBasket(product) {
@@ -35,9 +37,11 @@
 
 <h1 class="multicolortext">Tilgængelige produkter</h1>
 
+<hr>
 
 
 
+<!-- Cards der viser mine produkter ved hjælp af et each loop-->
 <div class="pos">
     {#each products as product}
 
@@ -57,7 +61,7 @@
             <p>Loading.....</p>
     {/each}
 </div>
-
+<!-- Cards slutter her-->
 
 
 
@@ -95,6 +99,7 @@
         height: fit-content;
         position: absolute;
         left: 50%;
+        top: 40%;
         transform: translateX(-50%);
         display: grid;
         grid-template-columns: repeat(5, 1fr);

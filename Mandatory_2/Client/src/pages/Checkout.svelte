@@ -42,11 +42,33 @@
     .card{
         border: 1px solid black;
         width: 25%;
-        position: absolute;
+        position: relative;
         left: 50%;
         top: 30%;
         transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
 
+    }
+
+    .pos{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        height: fit-content;
+        width: fit-content;
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translateX(-50%);
+        width: 100%;
+    }
+
+    .container{
+        padding: 20px 15px;
+        height: fit-content;
     }
 
 

@@ -4,9 +4,7 @@
     import {clickOutside} from "../scripts/clickOutside";
 	
     let products = [];
-    let name;
-    let price;
-    let description;
+    let users = [];
 
     // Modal JS
     let newProduct;
@@ -41,10 +39,14 @@
     function hideCreateModal() {
         createModalClass = 'hidden-modal';
     }
+    // Modal slutter her
 
 
     // Når siden bliver loadet så kaldes loadAll
-    onMount(loadAll);
+    onMount( () => {
+        loadAll();
+        loadAllUsers();
+    });
 
 
     // Function der fetcher produkter fra mit endpoint
@@ -52,6 +54,14 @@
         const res = await fetch(`/api/products`);
         const { data:productsArr } = await res.json();
         products = productsArr;
+    }
+
+    // Function der fetcher users fra mit endpoint
+    async function loadAllUsers() {
+        const res = await fetch(`/api/users`);
+        const { data:usersArr } = await res.json();
+        users = usersArr;
+        console.log(usersArr);
     }
 
 
@@ -102,14 +112,12 @@
     }
 
 
-
-
 </script>
 
 
+<h1 class="multicolortext">Admin side</h1>
 
-
-<h1>Admin site</h1>
+<hr>
 
 <!--Tabel over alle produkter-->
 <div>
@@ -142,6 +150,7 @@
         </tbody>
     </table>
 </div>
+<!--Tabel over alle produkter slutter her-->
 
 <br/>
 
@@ -156,12 +165,45 @@
 </div>
 <!-- Den her DIV bruges kun til at oprette nyt produkt-->
 
+<hr>
+
+<!--Tabel over alle users-->
+<div>
+    <h3>Administrer users!</h3>
+    <table id="tableMid">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Brugernavn</th>
+                <th>Password</th>
+                <th>isAdmin</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {#each users as user}
+            
+            <tr>
+                <td>{user.id}</td>
+                <td>{user.username}</td>
+                <td>{user.password}</td>
+                <td>{user.isAdmin}</td>
+            </tr>
+              
+        {/each}
+
+        </tbody>
+    </table>
+</div>
+<!--Tabel over alle produkter slutter her-->
+
+
 
 
 <!--Modal edit HTML starter her -->
 {#if curProduct}
-    
     <div use:clickOutside on:click_outside={hideEditModal} id="edit-modal" class={editModalClass}>
+
         <h3>Edit product</h3>
         <hr>
         <span> ID:  {curProduct.id}</span>
@@ -182,11 +224,12 @@
         </div>
 
     </div> 
-
 {/if}
+<!--Modal edit HTML slutter her -->
 
 
-<!--Modal edit HTML starter her -->
+
+<!--Modal create HTML starter her -->
 {#if newProduct}
     
     <div use:clickOutside on:click_outside={hideCreateModal} class={createModalClass} id="crModalDiv">
@@ -203,20 +246,31 @@
             <button class="createButton" on:click={ () => createProduct(curProduct)}>Create product</button>
             <button class="closeButton" on:click={hideCreateModal}>Close</button>
         </div>
-
     </div> 
 
 {/if}
+<!--Modal create HTML slutter her -->
 
 
 
 
 
 <style>
-    h1{
-       font-family: Comic Sans MS;
-       font-size: 45px;
-   }
+
+   .multicolortext {
+        background-image: linear-gradient(to left, rgb(172, 50, 13), rgb(63, 231, 253), rgb(243, 14, 224), rgb(202, 128, 231));
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+   h1{
+        font-family: Comic Sans MS;
+        font-size: 35px;
+        color: rgb(30, 82, 224);
+        font-weight: 1000;
+    }
 
    h3{
        font-family: Comic Sans MS;

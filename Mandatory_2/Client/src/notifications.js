@@ -2,7 +2,7 @@ import { writable, derived } from "svelte/store"
 
 
 // Sætter duration på min notification
-const NOTIFICATION_TIMEOUT = 10000
+const NOTIFICATION_TIMEOUT = 6000
 
 
 // Function der tilføjer nye notificationer

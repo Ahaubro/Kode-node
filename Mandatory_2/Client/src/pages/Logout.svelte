@@ -18,7 +18,7 @@
 </script>
 
 
-<h1>Logout</h1>
+<h1 class="multicolortext">Log ud side</h1>
 
 <hr>
 
@@ -26,5 +26,13 @@
 
 <h3>{responseMessage}</h3>
 
-
+<style>
+    .multicolortext {
+        background-image: linear-gradient(to left, rgb(66, 11, 138), indigo, rgb(6, 223, 252), rgb(255, 0, 191), rgb(123, 255, 0), rgb(243, 14, 224), rgb(183, 0, 255));
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+</style>
 

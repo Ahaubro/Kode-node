@@ -18,6 +18,11 @@
 
 	<h1 class="multicolortext">KEAs online kiosk </h1>
 
+	<div class="cart">
+		<Router>
+			<Link to="/checkout" > Kurv </Link>
+		</Router>
+	</div>
 
 
 
@@ -39,10 +44,6 @@
 
 				<div class="link-wrapper">
 					<li><Link to="/adminLogin" > Admin side </Link></li>
-				</div>
-
-				<div class="link-wrapper">
-					<li><Link to="/checkout" > Kurv </Link></li>
 				</div>
 
 				<div class="link-wrapper">
@@ -142,6 +143,12 @@
 		width: 100%;
 		opacity: 0.125;
 		z-index: -1;
+	  }
+
+	  .cart{
+		  position: absolute;
+		  left: 90%;
+		  top: 5%;
 	  }
 
 

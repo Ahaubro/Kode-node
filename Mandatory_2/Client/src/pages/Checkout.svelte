@@ -31,7 +31,9 @@
 
             
     {/each}
+        
 </div>
+
 
 <style>
 
@@ -42,10 +44,6 @@
     .card{
         border: 1px solid black;
         width: 25%;
-        position: relative;
-        left: 50%;
-        top: 30%;
-        transform: translateX(-50%);
         display: flex;
         align-items: center;
         justify-content: center;

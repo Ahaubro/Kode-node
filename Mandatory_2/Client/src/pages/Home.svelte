@@ -55,6 +55,11 @@
         -moz-background-clip: text;
         background-clip: text;
         color: transparent;
-      }
+    }
+
+    img{
+        height: 400px;
+        width: 600px;
+    }
       
 </style>

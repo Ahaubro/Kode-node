@@ -20,7 +20,7 @@
         animate:flip
         class="toast"
         style="background: {themes[notification.type]};"
-        transition:fly={{ y: -30 }}>
+        transition:fly={{ y: -50 }}>
         <div class="content">{notification.message}</div>
         {#if notification.icon}<i class={notification.icon} />{/if}
       </div>
@@ -32,7 +32,7 @@
   <style>
     .notifications {
       position: fixed;
-      top: 10px;
+      top: 34%;
       left: 0;
       right: 0;
       margin: 0 auto;

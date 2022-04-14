@@ -3,8 +3,6 @@
 	import Toast from "./Toast.svelte"
     import {clickOutside} from "../scripts/clickOutside.js"
 
-    //For at displaye min notification når vinduet bliver loadet
-    window.onload = () => {notifications.info('Opret en profil nu og få en masse fordele samt 10% rabat på dit første køb!')}
 </script>
 
 
@@ -16,19 +14,14 @@
 <hr>
 
 
-<!--Toast starter her-->
-
-
-<Toast/>
-
-
-<!--Toast slutter her-->
 
 
 
 
 <h3 class="multicolortext">
-    Surf thorugh all of our products so you can get whatever you feel like!
+    Gennemse vores produkter på siden "Produkter", og kontakt os endelig hvis du har spørgsmål. 
+    <br>
+    Kontakt oplysninger findes på siden om os.
 </h3>
 
 <div>

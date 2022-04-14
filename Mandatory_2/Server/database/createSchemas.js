@@ -1,10 +1,11 @@
 import db from "./createConnection.js";
-//import bcrypt from "bcrypt";
+import bcrypt from "bcrypt";
 
 const isInDeleteMode = true;
-//const saltRounds = 12;
-//const thorsPassHash = await bcrypt.hash("1234", saltRounds);
-//const alexPassHash = await bcrypt.hash("0", saltRounds);
+const saltRounds = 12;
+const thorsPassHash = await bcrypt.hash("1234", saltRounds);
+const alexPassHash = await bcrypt.hash("0", saltRounds);
+const mPassHash = await bcrypt.hash("00", saltRounds);
 
 if(isInDeleteMode) {
     db.exec(`DROP TABLE IF EXISTS products`);
@@ -33,8 +34,10 @@ if(isInDeleteMode) {
     db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Rød prince', 66, 'Den er god og farlig', './images/rp.jpg')`);
     db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Vandpibe', 250, 'Den er god', './images/vp.jpg')`);
     db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Sur mælk', 7, 'Den er ikke frisk', './images/img.png')`);
-    db.run(`INSERT INTO users (username, password, isAdmin) VALUES ('Thorminathor', '1234', false)`);
-    db.run(`INSERT INTO users (username, password, isAdmin) VALUES ('Arex', '0', true)`);
+    db.run(`INSERT INTO users (username, password, isAdmin) VALUES ('Thorminathor', '${thorsPassHash}', false)`);
+    db.run(`INSERT INTO users (username, password, isAdmin) VALUES ('arex@gmail.com', '${alexPassHash}', true)`);
+    db.run(`INSERT INTO users (username, password, isAdmin) VALUES ('malte@gmail.com', '${mPassHash}', true)`);
+
 
 }
 

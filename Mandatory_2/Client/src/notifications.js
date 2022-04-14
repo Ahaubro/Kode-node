@@ -1,11 +1,11 @@
 import { writable, derived } from "svelte/store"
 
 
-// Sætter duration på min notification
-const NOTIFICATION_TIMEOUT = 6000
+
+let NOTIFICATION_TIMEOUT = 1200;
 
 
-// Function der tilføjer nye notificationer
+
 const createNotificationStore = () => {
   const _notifications = writable([])
 
@@ -48,3 +48,4 @@ function id() {
 
 
 export const notifications = createNotificationStore()
+export let timeout = NOTIFICATION_TIMEOUT;

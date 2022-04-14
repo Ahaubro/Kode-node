@@ -22,7 +22,7 @@
 
 <hr>
 
-<button on:click={logout}> Log out </button>
+<button id="logout" on:click={logout}> Log out </button>
 
 <h3>{responseMessage}</h3>
 
@@ -33,6 +33,26 @@
         -moz-background-clip: text;
         background-clip: text;
         color: transparent;
+    }
+
+    h1{
+        font-family: Comic Sans MS;
+        font-size: 35px;
+        color: rgb(30, 82, 224);
+        font-weight: 1000;
+    } 
+
+    #logout{
+        background-color: rgb(240, 77, 77);
+        border-radius: 6px;
+        text-align: center;
+        font-size: 15px;
+        padding: 6px;
+    }
+
+    #logout:hover{
+        background-color: rgb(247, 27, 27);
+        transition: 0.3s;
     }
 </style>
 

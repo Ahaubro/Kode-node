@@ -1,16 +1,25 @@
-<h1 class="multicolortext">Hvem er vi</h1>
+<h1 class="multicolortext">Om os - Keas online kiosk</h1>
 
 <hr>
 
 <div class="aboutUs">
-    <p>Vi levere alt der kan findes i en kiosk, til den rigtige pris selvfølgig</p>
+    <p>Vi er en ung startup virksomhed der har til måls at bringe alt godt
+        fra kioskens verden direkte hjem i din stue. Om det er en flaske vodka en søndag aften,
+        eller en pakke smøger kl. 04 om natten.
+    </p>
 </div>
 
-<br/>
+
+
+<div class="vision">
+    <p>Vi går meget op i kundetilfredshed og service, du kan derfor altid kontakte os! Derudover er vi også aktive på de sociale medier, følg os idag! <br> </p>
+</div>
 
 
 <div class="contact">
-    <p>Kontakt os på email blabla@hotmail.com, eller ring til 29292929</p>
+    <p>Vores vision er at blive Danmarks førende virksomhed indenfor online salg af kioskvare. 
+        Vi levere altid indenfor 60 minutter og vi har planer om at 
+        levere i hele landet indenfor ganske kort tid.</p>
 </div>
 
 
@@ -19,12 +28,31 @@
         text-align: center;
         font-family: Comic Sans MS;
         margin: auto;
+        position: fixed;
+        left: 13%;
+        width: 20%;
+        top: 45%;
     }
 
     .contact{
         text-align: center;
         font-family: Comic Sans MS;
         margin: auto;
+        position: fixed;
+        right: 13%;
+        width: 20%;
+        top: 45%;
+    }
+
+    .vision{
+        text-align: center;
+        font-family: Comic Sans MS;
+        margin: auto;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20%;
+        top: 45%;
     }
 
     .multicolortext {
@@ -40,5 +68,18 @@
         font-size: 35px;
         color: rgb(30, 82, 224);
         font-weight: 1000;
+    }
+
+    p{
+        margin: auto;
+        font-size: 17px;
+        hyphens: auto;
+    }
+
+    .kontakt{
+        font-weight: 700;
+        font-size: 17px;
+        hyphens: auto;
+        margin: auto;
     }
 </style>

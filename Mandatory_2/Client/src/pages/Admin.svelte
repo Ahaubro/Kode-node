@@ -168,6 +168,8 @@
 <hr>
 
 <!--Tabel over alle users-->
+
+
 <div>
     <h3>Administrer users!</h3>
     <table id="tableMid">
@@ -195,7 +197,7 @@
         </tbody>
     </table>
 </div>
-<!--Tabel over alle produkter slutter her-->
+
 
 
 

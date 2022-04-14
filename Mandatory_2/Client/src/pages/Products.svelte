@@ -1,6 +1,8 @@
 <script>
     import { onMount } from "svelte";
     import {basket} from "../store/basket.js";
+    import {notifications, timeout} from "../notifications.js"
+    import Toast from "./Toast.svelte"
 
 
 
@@ -27,6 +29,7 @@
             console.log(storeValue.products)
             return storeValue;
         });
+        notifications.success("Produktet er blev tilføjet til kurven");
     }
 
 </script>
@@ -39,7 +42,7 @@
 
 <hr>
 
-
+<Toast/>
 
 <!-- Cards der viser mine produkter ved hjælp af et each loop-->
 <div class="pos">
@@ -52,7 +55,7 @@
                 <h3>{product.name}</h3>
                 <h3>{product.price} DKK</h3>
                 <p>{product.description} </p>
-                <button on:click={ () => addProductToBasket(product)}>Tilføj til kurv</button>
+                <button id="addBtn" on:click={ () => addProductToBasket(product)}>Tilføj til kurv</button>
             </div>
         </div>
 
@@ -116,6 +119,19 @@
         -moz-background-clip: text;
         background-clip: text;
         color: transparent;
+    }
+
+    #addBtn{
+        background-color: rgb(91, 196, 231);
+        border-radius: 5px;
+        padding: 6px;
+        text-align: center;
+        color: antiquewhite;
+    }
+
+    #addBtn:hover{
+        background-color: rgba(32, 116, 226, 0.753);
+        transition: 0.3s;
     }
 
 

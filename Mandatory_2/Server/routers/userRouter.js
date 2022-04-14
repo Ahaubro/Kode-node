@@ -1,4 +1,4 @@
-import {Router} from "express";
+import {application, Router} from "express";
 import db from "../database/createConnection.js";
 import nodemailer from "nodemailer";
 import bcrypt from "bcrypt";
@@ -32,10 +32,13 @@ router.post("/api/login", async (req, res) => {
 });
 
 
+
+
 // Leg med admin login siden, virker såment fint
 router.post("/api/adminLogin", async (req, res) => {
     const { username, password } = req.body
     const foundUser = await db.get("SELECT * FROM users where username = ?", [username]);
+    
     
 
     if(!foundUser) {
@@ -48,12 +51,17 @@ router.post("/api/adminLogin", async (req, res) => {
 
     }
 
-    if(foundUser.password === password && foundUser.isAdmin === 1) {
+    const isSame = await bcrypt.compare(password, foundUser.password);
+
+
+    if(isSame && foundUser.isAdmin === 1) {
         req.session.loggedIn = true;
         req.session.username = username;
         return res.send("You have been logged in as Admin user: " + username);
     }
 });
+
+
 
 
 // Logut
@@ -68,6 +76,8 @@ router.get("/api/logout", (req, res) => {
 });
 
 
+
+
 // Signup
 router.post("/api/signup", async (req, res) => {
     const { username, password } = req.body;
@@ -77,11 +87,15 @@ router.post("/api/signup", async (req, res) => {
     const { changes } = await db.run(`INSERT INTO users (username, password) VALUES (?, ?)`, [username, hashedPass]);
 
     if(changes === 1) {
+        sendMail(username);
         return res.send("You have been signed up");
     }
 
     res.send("Sign up failed")
 });
+
+
+
 
 // Get all users (til admin side)
 router.get("/api/users", async (req, res) => {
@@ -93,43 +107,31 @@ router.get("/api/users", async (req, res) => {
 
 
 
-
-// --------------------------------------LEG FRA IDAG 11-04 ------------------------------------------------------
-
-router.post("/api/forgotPassword", async (req, res) => {
-    const { username } = req.body;
-    const { changes } = await db.run(`SELECT password FROM users WHERE username = ?`, [username]);
-
-        
-        let mailTransporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'alexhaubro@gmail.com',
-                pass: 'Badedyr01Badedyr01'
-            }
-        });
-          
-        // Text = skal indeholde password
-        let mailDetails = {
-            from: 'alexhaubro@gmail.com',
-            to: username,
-            subject: 'Keas Online Kiosk - Glemt password',
-            text: 'Se dit glemte password nedenfor: '
-        };
-          
-        mailTransporter.sendMail(mailDetails, function(err, data) {
-            if(err) {
-                console.log('Error Occurs');
-            } else {
-                console.log('Email sent successfully');
-            }
-        });
-        
-        
-        return res.send("Email send" + changes);
-
-});
-
+function sendMail(username) {
+    let mailTransporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'keakiosk@gmail.com',
+            pass: 'KodeordKodeord'
+        }
+    });
+      
+    // Text = skal indeholde password
+    let mailDetails = {
+        from: 'keakiosk@gmail.com',
+        to: username,
+        subject: 'Keas Online Kiosk',
+        html:'<p> Tak fordi du oprettede en konto hos os! <br> Kom igang med at shoppe nu: <a href="http://localhost:9998/"> Klik her </a> </p>'
+    };
+      
+    mailTransporter.sendMail(mailDetails, function(err, data) {
+        if(err) {
+            console.log('Error Occurs');
+        } else {
+            console.log('Email sent successfully');
+        }
+    });
+}
 
 
 

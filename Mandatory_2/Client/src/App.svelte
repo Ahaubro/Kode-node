@@ -8,6 +8,27 @@
 	import Signup from "./pages/Signup.svelte";
 	import Logout from "./pages/Logout.svelte";
 	import AdminLogin from "./pages/AdminLogin.svelte";
+	import Footer from "./components/Footer.svelte";
+
+	let responseMessage = "";
+
+	async function logout() {
+        const res = await fetch(`/api/logout`);
+
+        responseMessage = await res.text();
+
+        setTimeout( () => {
+            navigate("/", {replace:true});
+        }, 1500);
+    }
+
+	function hideResponse() {
+		setTimeout( () => {
+            document.getElementById("res").style.display="none"
+        }, 3000);
+	}
+
+	
 
 	
 	
@@ -18,6 +39,7 @@
 
 	<h1 class="multicolortext">KEAs online kiosk </h1>
 
+	
 	<div class="cart">
 		<Router>
 			<Link to="/checkout" > Kurv </Link>
@@ -51,7 +73,7 @@
 				</div>
 
 				<div class="link-wrapper">
-					<li><Link to="/logout" > Logout </Link></li>
+					<li> <button on:click={logout} on:click={hideResponse} id="btn"> Logout </button> </li>
 				</div>
 				
 				
@@ -67,13 +89,11 @@
 		<Route path="/logout" component={Logout}></Route>
 		<Route path="/admin" component={Admin}></Route>
 
-
-		
-
-
 	</Router>
 
+	<h3 id="res">{responseMessage}</h3>
 
+<Footer/>
 
 </main>
 
@@ -83,6 +103,7 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
+		
 	}
 
 	h1 {
@@ -103,7 +124,7 @@
     	list-style-type: none;
     	margin: 0;
     	overflow: hidden;
-    	background-color: rgb(22, 187, 238);
+    	background-color: #5bc0de;
     	width: 100%
 	}
 
@@ -125,6 +146,23 @@
 
 	:global(a:hover:not(.active)){
 		background-color: rgb(42, 122, 243);
+		transition: 0.2s;
+	}
+
+	#btn{
+		display: block;
+		font-family: Comic Sans MS;
+		padding: 18px 55px;
+		text-decoration: none;
+		font-weight: 1000;
+		background-color: #5bc0de;
+		border: none;
+		color: rgba(236, 72, 72, 0.767);
+	}
+
+	#btn:hover{
+		background-color: rgb(42, 122, 243);
+		transition: 0.2s;
 	}
 
 	.multicolortext {
@@ -141,7 +179,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: 100%;
-		opacity: 0.125;
+		opacity: 0.2;
 		z-index: -1;
 	  }
 
@@ -150,6 +188,13 @@
 		  left: 90%;
 		  top: 5%;
 	  }
+
+	  h3{
+        position: fixed;
+        bottom: 9%;
+        left: 50%;
+        transform: translateX(-50%)
+    }
 
 
 

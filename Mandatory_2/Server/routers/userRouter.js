@@ -15,7 +15,7 @@ router.post("/api/login", async (req, res) => {
     const foundUser = await db.get("SELECT * FROM users WHERE username = ?", [username]);
 
     if(!foundUser) {
-        return res.send("Wrong username or password");
+        return res.status(404).send("Wrong username or password");
     }
 
     const isSame = await bcrypt.compare(password, foundUser.password);
@@ -23,7 +23,7 @@ router.post("/api/login", async (req, res) => {
     if(isSame && !req.session.loggedIn) {
         req.session.loggedIn = true;
         req.session.username = username;
-        return res.send("You have been logged in to user: " + username);
+        return res.status(201).send("You have been logged in to user: " + username);
     }
 
     if(req.session.loggedIn) {
@@ -42,12 +42,12 @@ router.post("/api/adminLogin", async (req, res) => {
     
 
     if(!foundUser) {
-        return res.send("There is no such user bruh");
+        return res.status(404).send("Der er ingen Admin bruger med det brugernavn");
     }
     
     // Hvis jeg bruger res.send her, så bugger den og sender en ikke admin videre vil admin siden
     if(foundUser.username === username && foundUser.isAdmin === 0) {
-        return console.log("Adgang nægtet, brugeren er ikke Admin")
+        return res.status(404).send("Adgang nægtet, brugeren er ikke Admin")
 
     }
 
@@ -57,7 +57,7 @@ router.post("/api/adminLogin", async (req, res) => {
     if(isSame && foundUser.isAdmin === 1) {
         req.session.loggedIn = true;
         req.session.username = username;
-        return res.send("You have been logged in as Admin user: " + username);
+        return res.status(201).send("You have been logged in as Admin user: " + username);
     }
 });
 

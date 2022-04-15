@@ -3,6 +3,12 @@
 	import Toast from "./Toast.svelte"
     import {clickOutside} from "../scripts/clickOutside.js"
 
+    /*async function status() {
+        const res = await fetch("/api/login");
+
+        console.log(res.status)
+    }*/
+
 </script>
 
 
@@ -14,10 +20,6 @@
 <hr>
 
 
-
-
-
-
 <h3 class="multicolortext">
     Gennemse vores produkter på siden "Produkter", og kontakt os endelig hvis du har spørgsmål. 
     <br>
@@ -27,7 +29,6 @@
 <div>
 <img src="/images/home.jpg" alt="Welcome"/>
 </div>
-
 
 
 

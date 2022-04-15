@@ -3,7 +3,8 @@
 
 </script>
 
-
+<h1 class="multicolortext"> Indkøbskurv </h1>
+<hr>
     
 <div id="kurv">
     <p></p>
@@ -68,7 +69,7 @@
         height: fit-content;
     }
 
-    h1{
+    /*h1{
         font-family: Comic Sans MS;
         font-size: 35px;
         color: rgb(30, 82, 224);
@@ -86,6 +87,21 @@
     .buy:hover{
         background-color: rgb(219, 136, 10);
         transition: 0.3s;
+    }*/
+
+    h1{
+        font-family: Comic Sans MS;
+        font-size: 35px;
+        color: rgb(30, 82, 224);
+        font-weight: 1000;
+    }
+
+    .multicolortext {
+        background-image: linear-gradient(to left, rgb(172, 50, 13), rgb(63, 231, 253), rgb(243, 14, 224), rgb(202, 128, 231));
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
     }
 
 

@@ -111,6 +111,8 @@
         hideEditModal();
     }
 
+    
+
 
 </script>
 
@@ -165,10 +167,10 @@
 </div>
 <!-- Den her DIV bruges kun til at oprette nyt produkt-->
 
-<hr>
 
 <!--Tabel over alle users-->
 
+<!--
 
 <div>
     <h3>Administrer users!</h3>
@@ -198,7 +200,7 @@
     </table>
 </div>
 
-
+-->
 
 
 

@@ -1,6 +1,7 @@
 <script>
     import { navigate } from "svelte-navigator";
     import {notifications} from "../notifications.js"
+    import { token } from "../store/accessStore.js";
     import Toast from "./Toast.svelte"
 
     let newUser = {};
@@ -21,10 +22,24 @@
         
         const re1 = await fetch(`/api/users`);
 
-        // DET DRILLER HER
-        setTimeout( () => {
-            navigate("/admin", {replace:true})
-        }, 3000);
+        if(res.status == 201) {
+            
+            localStorage.setItem('token', '1');
+            token.set(localStorage.getItem('token'));
+
+            setTimeout( () => {
+                navigate("/admin", {replace:true});
+            }, 1500);
+    
+            localStorage.setItem('token', '0');
+        
+        } else {
+            localStorage.setItem('token', '0');
+            setTimeout( () => {
+            navigate("/", {replace:true})
+            }, 1500);
+    
+        }
 
     }   
     

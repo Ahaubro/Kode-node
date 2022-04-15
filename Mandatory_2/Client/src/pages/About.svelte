@@ -29,7 +29,7 @@
         font-family: Comic Sans MS;
         margin: auto;
         position: fixed;
-        left: 13%;
+        left: 16%;
         width: 20%;
         top: 45%;
     }
@@ -39,7 +39,7 @@
         font-family: Comic Sans MS;
         margin: auto;
         position: fixed;
-        right: 13%;
+        right: 16%;
         width: 20%;
         top: 45%;
     }
@@ -74,12 +74,5 @@
         margin: auto;
         font-size: 17px;
         hyphens: auto;
-    }
-
-    .kontakt{
-        font-weight: 700;
-        font-size: 17px;
-        hyphens: auto;
-        margin: auto;
     }
 </style>

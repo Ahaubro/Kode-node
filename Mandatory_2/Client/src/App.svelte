@@ -6,9 +6,9 @@
 	import Home from "./pages/Home.svelte"
 	import Products from "./pages/Products.svelte";
 	import Signup from "./pages/Signup.svelte";
-	import Logout from "./pages/Logout.svelte";
 	import AdminLogin from "./pages/AdminLogin.svelte";
 	import Footer from "./components/Footer.svelte";
+	import ProtectedRoutes from "./components/ProtectedRoutes.svelte";
 
 	let responseMessage = "";
 
@@ -17,10 +17,8 @@
 
         responseMessage = await res.text();
 
-        setTimeout( () => {
-            navigate("/", {replace:true});
-        }, 1500);
     }
+
 
 	function hideResponse() {
 		setTimeout( () => {
@@ -28,9 +26,6 @@
         }, 3000);
 	}
 
-	
-
-	
 	
 </script>
 
@@ -73,7 +68,7 @@
 				</div>
 
 				<div class="link-wrapper">
-					<li> <button on:click={logout} on:click={hideResponse} id="btn"> Logout </button> </li>
+					<li> <button on:click={logout} on:click={hideResponse} id="btn" > Logout </button> </li>
 				</div>
 				
 				
@@ -86,8 +81,9 @@
 		<Route path="/adminLogin" component={AdminLogin}></Route>
 		<Route path="/checkout" component={Checkout}></Route>
 		<Route path="/signup" component={Signup}></Route>
-		<Route path="/logout" component={Logout}></Route>
-		<Route path="/admin" component={Admin}></Route>
+		
+		<Route path="/" component={Home}></Route>
+		<ProtectedRoutes path="/admin" component={Admin}/>
 
 	</Router>
 

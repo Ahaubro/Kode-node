@@ -29,18 +29,18 @@
         font-family: Comic Sans MS;
         margin: auto;
         position: fixed;
-        left: 16%;
-        width: 20%;
+        left: 18%;
+        width: 18%;
         top: 45%;
     }
 
     .contact{
         text-align: center;
         font-family: Comic Sans MS;
-        margin: auto;
+        margin-left: auto;
         position: fixed;
-        right: 16%;
-        width: 20%;
+        right: 18%;
+        width: 18%;
         top: 45%;
     }
 
@@ -51,7 +51,7 @@
         position: fixed;
         left: 50%;
         transform: translateX(-50%);
-        width: 20%;
+        width: 18%;
         top: 45%;
     }
 

@@ -122,7 +122,7 @@
 <hr>
 
 <!--Tabel over alle produkter-->
-<div>
+<div class="pos">
     <h3>Administrer produkter!</h3>
     <table id="tableMid">
         <thead>
@@ -151,6 +151,13 @@
 
         </tbody>
     </table>
+
+
+    <div>
+
+        <button class="createButton" type="button" on:click="{showCreateModal}">Opret produkt</button>
+    
+    </div>
 </div>
 <!--Tabel over alle produkter slutter her-->
 
@@ -158,14 +165,6 @@
 
 
 
-
-<!-- Den her DIV bruges kun til at oprette nyt produkt-->
-<div>
-
-    <button class="createButton" type="button" on:click="{showCreateModal}">Opret produkt</button>
-
-</div>
-<!-- Den her DIV bruges kun til at oprette nyt produkt-->
 
 
 <!--Tabel over alle users-->
@@ -389,6 +388,17 @@
 
     #crModalDiv{
         height: 350px;
+    }
+
+    .pos{
+        display: flex;
+        height: 50.5%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: grid;
+        width: 100%;
+        overflow-y: scroll;
     }
 
 

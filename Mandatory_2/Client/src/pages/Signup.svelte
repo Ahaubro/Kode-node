@@ -36,11 +36,19 @@
             body: JSON.stringify(newUser)
         })
 
-        responseMessage = await res.text();
+        if(res.status == 201) {
 
-        setTimeout( () => {
-            navigate("/", {replace:true})
-        }, 1500);
+            responseMessage = await res.text();
+            notifications.success(responseMessage);
+
+            setTimeout( () => {
+                navigate("/", {replace:true})
+            }, 1500);
+
+        } else {
+            responseMessage = await res.text();
+            notifications.danger(responseMessage);
+        }
     }
 
 

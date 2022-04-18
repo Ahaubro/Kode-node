@@ -2,7 +2,7 @@ import { writable, derived } from "svelte/store"
 
 
 
-let NOTIFICATION_TIMEOUT = 1200;
+let NOTIFICATION_TIMEOUT = 2000;
 
 
 

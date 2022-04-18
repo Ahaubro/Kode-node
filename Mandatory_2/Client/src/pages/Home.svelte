@@ -21,9 +21,7 @@
 
 
 <h3 class="multicolortext">
-    Gennemse vores produkter på siden "Produkter", og kontakt os endelig hvis du har spørgsmål. 
-    <br>
-    Kontakt oplysninger findes på siden om os.
+    Gennemse vores produkter på siden "Produkter", eller læs mere om os på siden "Om os". 
 </h3>
 
 <div>
@@ -49,6 +47,7 @@
         -moz-background-clip: text;
         background-clip: text;
         color: transparent;
+        font-weight: 1500;
     }
 
     img{

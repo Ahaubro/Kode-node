@@ -9,6 +9,8 @@
 	import AdminLogin from "./pages/AdminLogin.svelte";
 	import Footer from "./components/Footer.svelte";
 	import ProtectedRoutes from "./components/ProtectedRoutes.svelte";
+	import { notifications } from "./notifications";
+	import Toast from "./pages/Toast.svelte"
 
 	let responseMessage = "";
 
@@ -16,6 +18,8 @@
         const res = await fetch(`/api/logout`);
 
         responseMessage = await res.text();
+
+		notifications.warning(responseMessage)
 
     }
 
@@ -60,17 +64,16 @@
 				</div>
 
 				<div class="link-wrapper">
-					<li><Link to="/adminLogin" > Admin side </Link></li>
+					<li><Link to="/signup" > Sign up & login </Link></li>
 				</div>
 
 				<div class="link-wrapper">
-					<li><Link to="/signup" > Sign up & login </Link></li>
+					<li><Link to="/adminLogin" > Admin side </Link></li>
 				</div>
 
 				<div class="link-wrapper">
 					<li> <button on:click={logout} on:click={hideResponse} id="btn" > Logout </button> </li>
 				</div>
-				
 				
 			</ul>
 		</nav>
@@ -87,9 +90,11 @@
 
 	</Router>
 
-	<h3 id="res">{responseMessage}</h3>
+	<!--<h3 id="res">{responseMessage}</h3> -->
 
 <Footer/>
+
+<Toast/>
 
 </main>
 
@@ -99,7 +104,6 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
-		
 	}
 
 	h1 {
@@ -175,7 +179,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: 100%;
-		opacity: 0.2;
+		opacity: 0.25;
 		z-index: -1;
 	  }
 

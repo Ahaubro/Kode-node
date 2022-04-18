@@ -9,7 +9,7 @@
     $: isAuthenticated = $token;
 </script>
 
-{#if isAuthenticated > 0}
+{#if isAuthenticated > 0 }
     <Route path={path} component={component}/>
 {:else}
     <Route path={path} component={AccessDenied} />

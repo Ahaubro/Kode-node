@@ -28,17 +28,22 @@ db.exec(`CREATE TABLE IF NOT EXISTS users (
     
 );`);
 
+
 if(isInDeleteMode) {
     db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Coca cola', 25, 'Den er god', './images/cola.jpg')`);
     db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Grøn Tuborg', 20, 'Den er rigtig god', './images/gt.jpg')`);
     db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Rød prince', 66, 'Den er god og farlig', './images/rp.jpg')`);
     db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Vandpibe', 250, 'Den er god', './images/vp.jpg')`);
-    db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Sur mælk', 7, 'Den er ikke frisk', './images/img.png')`);
+    db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Sød mælk', 7, 'Den er næsten frisk', './images/sødMælk.png')`);
+    db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Redbull', 27, 'Den giver vinger', './images/Redbull.jpg')`);
+    db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Kims Chips', 25, 'De er lækre!', './images/kims.png')`);
+    db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Haribo vingummi', 20, 'De smager godt!', './images/haribo.jpg')`);
+    db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Lyft', 50, 'De gør ondt', './images/lyft.jpg')`);
+    db.run(`INSERT INTO products (name, price, description, imagePath) VALUES ('Grey Goose', 250, 'Man bliver fuld', './images/gg.jpg')`);
     db.run(`INSERT INTO users (username, password, isAdmin) VALUES ('Thorminathor', '${thorsPassHash}', false)`);
     db.run(`INSERT INTO users (username, password, isAdmin) VALUES ('arex@gmail.com', '${alexPassHash}', true)`);
     db.run(`INSERT INTO users (username, password, isAdmin) VALUES ('malte@gmail.com', '${mPassHash}', true)`);
-
-
 }
+
 
 db.close();

@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import {basket} from "../store/basket.js";
-    import {notifications, timeout} from "../notifications.js"
+    import {notifications} from "../notifications.js"
     import Toast from "./Toast.svelte"
 
 
@@ -68,7 +68,6 @@
 
 
 
-
 <style>
      h1{
         font-family: Comic Sans MS;
@@ -99,22 +98,23 @@
         text-align: center;
         display: flex;
         justify-content: center;
-        height: fit-content;
+        height: 50.5%;
         position: absolute;
         left: 50%;
         top: 40%;
         transform: translateX(-50%);
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-
+        overflow-y: scroll;
+        
     }
 
     img{
-        height: 150px;
+        height: 100px;
     }
 
     .multicolortext {
-        background-image: linear-gradient(to left, rgb(138, 11, 132), rgb(63, 231, 253), rgba(123, 255, 0, 0.521), rgb(243, 14, 224), rgb(183, 0, 255));
+        background-image: linear-gradient(to left, rgb(138, 11, 132), rgba(7, 160, 180, 0.836), rgba(123, 255, 0, 0.521), rgb(243, 14, 224), rgb(183, 0, 255));
         -webkit-background-clip: text;
         -moz-background-clip: text;
         background-clip: text;

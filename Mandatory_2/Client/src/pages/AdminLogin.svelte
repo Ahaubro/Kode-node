@@ -20,7 +20,6 @@
 
         responseMessage = await res.text();
         
-        const re1 = await fetch(`/api/users`);
 
         if(res.status == 201) {
             
@@ -40,7 +39,6 @@
             }, 1500);
     
         }
-
     }   
     
 </script>

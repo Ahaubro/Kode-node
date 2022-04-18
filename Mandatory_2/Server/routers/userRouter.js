@@ -82,6 +82,12 @@ router.get("/api/logout", (req, res) => {
 router.post("/api/signup", async (req, res) => {
     const { username, password } = req.body;
 
+    const foundUser = await db.get("SELECT * FROM users WHERE username = ?", [username])
+
+    if(foundUser.username == username) {
+        return res.status(404).send("There is already a user with that email")
+    }
+
     const hashedPass = await bcrypt.hash(password, saltRounds);
 
     const { changes } = await db.run(`INSERT INTO users (username, password) VALUES (?, ?)`, [username, hashedPass]);

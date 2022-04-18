@@ -16,13 +16,19 @@
             body: JSON.stringify(newUser)
         })
 
-        responseMessage = await res.text();
+        if(res.status == 404) {
+            responseMessage = await res.text();
+            notifications.warning(responseMessage)
+        } else {
 
-        setTimeout( () => {
-            navigate("/", {replace:true})
-        }, 2000);
+            responseMessage = await res.text();
 
-        notifications.success("Ny bruger oprettet - Du har modtaget en mail fra os")
+            setTimeout( () => {
+                navigate("/", {replace:true})
+            }, 2000);
+
+            notifications.success("Ny bruger oprettet - Du har modtaget en mail fra os")
+        }
     }
 
 
@@ -39,11 +45,11 @@
         if(res.status == 201) {
 
             responseMessage = await res.text();
-            notifications.success(responseMessage);
+            notifications.info(responseMessage);
 
             setTimeout( () => {
                 navigate("/", {replace:true})
-            }, 1500);
+            }, 2000);
 
         } else {
             responseMessage = await res.text();

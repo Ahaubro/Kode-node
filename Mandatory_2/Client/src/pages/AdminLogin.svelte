@@ -26,6 +26,8 @@
             localStorage.setItem('token', '1');
             token.set(localStorage.getItem('token'));
 
+            notifications.info(responseMessage)
+
             setTimeout( () => {
                 navigate("/admin", {replace:true});
             }, 1500);
@@ -33,6 +35,7 @@
             localStorage.setItem('token', '0');
         
         } else {
+            notifications.warning(responseMessage)
             localStorage.setItem('token', '0');
             setTimeout( () => {
             navigate("/", {replace:true})
@@ -67,9 +70,6 @@
     <button  class="loginButton" on:click={login}>Login som Admin</button>
     </div>
 </div>
-
-
-<h3 class="multicolortext">{responseMessage}</h3>
 
 
 
@@ -130,12 +130,5 @@
     .loginButton:hover{
         background-color: rgb(0, 132, 255);
         transition: 0.35s;
-    }
-
-    h3{
-        position: fixed;
-        bottom: 10%;
-        left: 50%;
-        transform: translateX(-50%)
     }
 </style>

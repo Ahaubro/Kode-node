@@ -189,13 +189,4 @@
 		  top: 5%;
 	  }
 
-	  h3{
-        position: fixed;
-        bottom: 9%;
-        left: 50%;
-        transform: translateX(-50%)
-    }
-
-
-
 </style>

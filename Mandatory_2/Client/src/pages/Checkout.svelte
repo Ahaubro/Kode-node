@@ -1,6 +1,9 @@
 <script>
     import {basket} from "../store/basket.js"
 
+    const totalPrice = 0;
+    const totalAmount = 0;
+
 </script>
 
 <h1 class="multicolortext"> Indkøbskurv </h1>

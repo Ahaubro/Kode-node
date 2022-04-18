@@ -84,7 +84,7 @@ router.post("/api/signup", async (req, res) => {
 
     const foundUser = await db.get("SELECT * FROM users WHERE username = ?", [username])
 
-    if(foundUser.username == username) {
+   if(foundUser) {
         return res.status(404).send("There is already a user with that email")
     }
 

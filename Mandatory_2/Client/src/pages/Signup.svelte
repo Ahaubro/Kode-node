@@ -93,8 +93,6 @@
 
 </div>
 
-<h3>{responseMessage}</h3>
-
 
 
 
@@ -121,13 +119,6 @@
         font-size: 35px;
         color: rgb(30, 82, 224);
         font-weight: 1000;
-    }
-
-    h3{
-        position: fixed;
-        bottom: 10%;
-        left: 50%;
-        transform: translateX(-50%)
     }
     
     #itxt{

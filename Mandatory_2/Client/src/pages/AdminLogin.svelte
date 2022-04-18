@@ -37,9 +37,6 @@
         } else {
             notifications.warning(responseMessage)
             localStorage.setItem('token', '0');
-            setTimeout( () => {
-            navigate("/", {replace:true})
-            }, 1500);
     
         }
     }   

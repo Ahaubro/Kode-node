@@ -23,10 +23,6 @@
 
             responseMessage = await res.text();
 
-            setTimeout( () => {
-                navigate("/", {replace:true})
-            }, 2000);
-
             notifications.success("Ny bruger oprettet - Du har modtaget en mail fra os")
         }
     }

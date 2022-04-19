@@ -58,7 +58,7 @@
     <p id="itxt">Kea kiosk Admin login</p>
     <hr>
     <br>
-    <input placeholder="Email" bind:value={newUser.username} type="text"/>
+    <input placeholder="Email" bind:value={newUser.username} type="text" />
     <br/>
     <input placeholder="Password" bind:value={newUser.password} type="password"/>
     <br/>

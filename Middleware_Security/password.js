@@ -5,19 +5,17 @@ const hashedPassword = "$2b$12$vTUBuYJvHlIKb6BCqIhn9uWptmkiuju9tff1EYusnUvVEk9Fn
 
 
 
-async function loginRouter() {
+
+
     const isSame = await bcrypt.compare(plainTextPassword, hashedPassword);
     console.log(isSame);
-}
 
 
-async function signupRouter() {
-    const hashedPassword = await bcrypt.hash(plainTextPassword, saltRounds);
+
+    const resultHashedPassword = await bcrypt.hash(plainTextPassword, saltRounds);
     console.log(hashedPassword);
-}
 
-loginRouter();
-signupRouter();
+
 
 
 

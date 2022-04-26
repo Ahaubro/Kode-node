@@ -1,15 +1,20 @@
 <script>
     import { onMount } from "svelte";
     import {basket} from "../store/basket.js";
+    import {notifications} from "../notifications.js"
+    import Toast from "./Toast.svelte"
 
 
 
     let products = [];
 
+    // Fetcher produkter fra min server
     onMount(async () => {
-        const res = await fetch(`http://localhost:8181/`);
-        products = await res.json();
+        const res = await fetch("/api/products");
+        const { data:productsArr } = await res.json();
+        products = productsArr;
     })
+    
 
     // Function der tilføjer et produkt til min kurv
     function addProductToBasket(product) {
@@ -24,15 +29,22 @@
             console.log(storeValue.products)
             return storeValue;
         });
+        notifications.success("Produktet er blev tilføjet til kurven");
     }
+
 </script>
+
+
 
 
 
 <h1 class="multicolortext">Tilgængelige produkter</h1>
 
+<hr>
 
+<Toast/>
 
+<!-- Cards der viser mine produkter ved hjælp af et each loop-->
 <div class="pos">
     {#each products as product}
 
@@ -42,7 +54,8 @@
                 <img src={product.imagePath} alt={product.name}>
                 <h3>{product.name}</h3>
                 <h3>{product.price} DKK</h3>
-                <button on:click={ () => addProductToBasket(product)}>Tilføj til kurv</button>
+                <p>{product.description} </p>
+                <button id="addBtn" on:click={ () => addProductToBasket(product)}>Tilføj til kurv</button>
             </div>
         </div>
 
@@ -51,9 +64,7 @@
             <p>Loading.....</p>
     {/each}
 </div>
-
-
-
+<!-- Cards slutter her-->
 
 
 <style>
@@ -86,25 +97,40 @@
         text-align: center;
         display: flex;
         justify-content: center;
-        height: fit-content;
+        height: 50.5%;
         position: absolute;
         left: 50%;
+        top: 40%;
         transform: translateX(-50%);
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-
+        overflow-y: scroll;
+        
     }
 
     img{
-        height: 150px;
+        height: 100px;
     }
 
     .multicolortext {
-        background-image: linear-gradient(to left, rgb(138, 11, 132), rgb(63, 231, 253), rgba(123, 255, 0, 0.521), rgb(243, 14, 224), rgb(183, 0, 255));
+        background-image: linear-gradient(to left, rgb(138, 11, 132), rgba(7, 160, 180, 0.836), rgba(123, 255, 0, 0.521), rgb(243, 14, 224), rgb(183, 0, 255));
         -webkit-background-clip: text;
         -moz-background-clip: text;
         background-clip: text;
         color: transparent;
+    }
+
+    #addBtn{
+        background-color: rgb(91, 196, 231);
+        border-radius: 5px;
+        padding: 6px;
+        text-align: center;
+        color: antiquewhite;
+    }
+
+    #addBtn:hover{
+        background-color: rgba(32, 116, 226, 0.753);
+        transition: 0.3s;
     }
 
 

@@ -5,30 +5,265 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        h1{
+            text-align: center;
+            font-size: 40px;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #content{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #resultContent{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-100%);
+        }
+
+        .allTables{
+            width: 200%;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 50%;
+            border-radius: 15px;
+        }
+
+        th{
+            background-color: rgba(14, 180, 221, 0.459);
+            text-align: center;
+
+        }
+
+        td, th{
+            border: 1px solid rgb(102, 102, 102);
+            text-align: left;
+            width: 50%;
+            padding: 5px;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(14, 180, 221, 0.329);
+        }
+
+        p{
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        #btn{
+            border-radius: 5px;
+            background-color: rgba(33, 121, 221, 0.61);
+            font-weight: 700;
+            color: white;
+            padding: 5px;
+        }
+
+        #btn:hover{
+            transition: 0.4s;
+            background-color: rgb(33, 121, 221);
+        }
+
+        select, input{
+            padding: 5px;
+        }
+
+        select{
+            margin-right: 108px;
+        }
+
+    </style>
+
+
 </head>
 <body>
-    <h1>Johbs side</h1>
+    <h1>Johan Lykke Berg - Ækvivalens omregner</h1>
 
-    Patientens vægt: <input type="number" id="myNum">
+    <hr>
+    <div id="content">
+        <p>Vælg den type medicin samt hvilken døgndosis patienten påkræver</p>
 
-    <p id="result"></p>
+        <span>Medicin type: </span>
+
+        <select id="type">
+            <option value="morfin"> Morfin </option>
+            <option value="metadon"> Metadon </option>
+            <option value="contalgin"> Contalgin </option>
+            <option value="oxynorm"> Oxynorm </option>
+        </select>
+
+
+
+        <span> Dosis: </span>
+
     
-    <button onclick="myFunction()">Submit</button>
+        <input id="dosis" type="number"/>
+        <button id="btn" onclick="calculateDoses()"> Omregn dosis </button>
+        <br>
+        <hr>
+        
+        <div id="resultContent">
+            <table class="allTables">
+                <thead>
+                    <tr>
+                        <th> Type </th>
+                        <th> Dosis </th>
+                    </tr>
+                </thead>
+                <tbody id="resultBody">
+                
+                </tbody>
+            </table>
+
+            <p><b>Som p.n. ordination gives: </b></p>
+            
+            <table class="allTables">
+                <tbody>
+                    <tr>
+                        <td>Morfin iv</td>
+                        <td id="iv"></td>
+                    </tr>
+                    <tr>
+                        <td>Morfin po</td>
+                        <td id="po"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+
+            <p><b>Evt. Supplerende depotmedicin: </b></p>
+
+            <table class="allTables">
+                <tbody>
+                    <tr>
+                        <td> Supplerende depotmorfin</td>
+                        <td id="dm"></td>
+                    </tr>
+                    <tr>
+                        <td> Supplerende depotoxycodon</td>
+                        <td id="doh"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
 
     
-
-
-
 </body>
 
 <script>
-    function myFunction() {
-      const x = document.getElementById("myNum").value;
 
-      x = x + 1;
-      
-      console.log(x)
+    let typeElement = document.getElementById("type");
+    let dosisElement = document.getElementById("dosis");
+    let resultBody = document.getElementById("resultBody");
+    let iv = document.getElementById("iv");
+    let po = document.getElementById("po");
+    let dm = document.getElementById("dm");
+    let doh = document.getElementById("doh");
+
+
+    function calculateDoses() {
+        let type = typeElement.value;
+        let dosis = Number(dosisElement.value);
+        let otherDoses = {};
+
+
+        // 100 MORFIN = 75 OXYNORM, 100 OXYNORM = 133 MORFIN
+        switch(type) {
+            case "morfin":
+                otherDoses = {metadon: Math.floor(dosis / 5), contalgin: dosis, oxynorm: Math.ceil(dosis * 3 / 4)};
+                break;
+            case "metadon":
+                otherDoses = {morfin: dosis * 5, contalgin: dosis * 5, oxynorm: Math.floor(dosis * 15 / 4)};
+                break;
+            case "contalgin":
+                otherDoses = {morfin: dosis, metadon: Math.floor(dosis / 5), oxynorm: Math.ceil(dosis * 3 / 4)};
+                break;
+            case "oxynorm":
+                otherDoses = {morfin: Math.floor(dosis * 4 / 3), metadon: Math.floor(dosis * 4 / 15), contalgin: Math.floor(dosis * 4 / 3)};
+                break;
+
+        }
+        resultBody.innerHTML="";
+
+        if(otherDoses.morfin) {
+            resultBody.innerHTML+= convertionToHtml("Morfin", otherDoses.morfin);
+        } 
+
+        if(otherDoses.metadon) {
+            resultBody.innerHTML+= convertionToHtml("Metadon", otherDoses.metadon);
+        } 
+
+        if(otherDoses.contalgin) {
+            resultBody.innerHTML+= convertionToHtml("Contalgin", otherDoses.contalgin);
+        } 
+
+        if(otherDoses.oxynorm) {
+            resultBody.innerHTML+= convertionToHtml("Oxynorm", otherDoses.oxynorm);
+        } 
+
+        if(!otherDoses.morfin) {
+            otherDoses.morfin = dosis;
+        }
+
+        let {morfin} = otherDoses;
+
+        if(morfin >= 50 && morfin < 100) {
+            iv.innerText="2,5 - 5 mg. x 8";
+            po.innerText="10 - 15 mg. x 6";
+        } else if(morfin < 300) {
+            iv.innerText="5 - 10 mg. x 8";
+            po.innerText="15 - 45 mg. x 6";
+        } else if(morfin < 500) {
+            iv.innerText="10 - 20 mg. x 8";
+            po.innerText="30 - 60 mg. x 6";
+        } else if(morfin < 750) {
+            iv.innerText="20 - 25 mg. x 8";
+            po.innerText="50 - 75 mg. x 6";
+        }
+
+        if(!otherDoses.metadon) {
+            otherDoses.metadon = dosis;
+        } 
+
+        let {metadon} = otherDoses;
+
+        if(metadon < 40) {
+            dm.innerText="30 mg. x 2";
+            doh.innerText="20 mg. x 2";
+        } else if(metadon < 80) {
+            dm.innerText="60 mg. x 2";
+            doh.innerText="40 mg. x 2";
+        } else if(metadon < 120) {
+            dm.innerText="60 mg. x 3";
+            doh.innerText="40 mg. x 3";
+        } else if(metadon < 160) {
+            dm.innerText="90 mg. x 3";
+            doh.innerText="60 mg. x 3";
+        }
     }
+
+    function convertionToHtml(type, dosis) {
+        return `<tr> 
+            <td> ${type} </td>
+            <td> ${dosis} </td>
+            </tr>`;
+    }
+
+
+
 </script>
 
 

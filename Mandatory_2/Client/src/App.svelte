@@ -5,6 +5,30 @@
 	import Checkout from "./pages/Checkout.svelte";
 	import Home from "./pages/Home.svelte"
 	import Products from "./pages/Products.svelte";
+	import Signup from "./pages/Signup.svelte";
+	import AdminLogin from "./pages/AdminLogin.svelte";
+	import Footer from "./components/Footer.svelte";
+	import ProtectedRoutes from "./components/ProtectedRoutes.svelte";
+	import { notifications } from "./notifications";
+	import Toast from "./pages/Toast.svelte"
+
+	let responseMessage = "";
+
+	async function logout() {
+        const res = await fetch(`/api/logout`);
+
+        responseMessage = await res.text();
+
+		notifications.warning(responseMessage)
+
+    }
+
+
+	function hideResponse() {
+		setTimeout( () => {
+            document.getElementById("res").style.display="none"
+        }, 3000);
+	}
 
 	
 </script>
@@ -12,7 +36,15 @@
 <main>
 	<img src="/images/baggrund.jpg" alt="background">
 
-	<h1 class="multicolortext">KEAs online kiosk - Køb nu og få op til 20% rabat </h1>
+	<h1 class="multicolortext">KEAs online kiosk </h1>
+
+	
+	<div class="cart">
+		<Router>
+			<Link to="/checkout" > Kurv </Link>
+		</Router>
+	</div>
+
 
 
 	<Router>
@@ -32,11 +64,15 @@
 				</div>
 
 				<div class="link-wrapper">
-					<li><Link to="/admin" > Admin side </Link></li>
+					<li><Link to="/signup" > Sign up & login </Link></li>
 				</div>
 
 				<div class="link-wrapper">
-					<li><Link to="/checkout" > Kurv </Link></li>
+					<li><Link to="/adminLogin" > Admin side </Link></li>
+				</div>
+
+				<div class="link-wrapper">
+					<li> <button on:click={logout} on:click={hideResponse} id="btn" > Logout </button> </li>
 				</div>
 				
 			</ul>
@@ -45,16 +81,20 @@
 		<Route path="/about" component={About}></Route>
 		<Route path="/" component={Home}></Route>
 		<Route path="/products" component={Products}></Route>
-		<Route path="/admin" component={Admin}></Route>
+		<Route path="/adminLogin" component={AdminLogin}></Route>
 		<Route path="/checkout" component={Checkout}></Route>
-
+		<Route path="/signup" component={Signup}></Route>
 		
-
+		<Route path="/" component={Home}></Route>
+		<ProtectedRoutes path="/admin" component={Admin}/>
 
 	</Router>
 
+	<!--<h3 id="res">{responseMessage}</h3> -->
 
+<Footer/>
 
+<Toast/>
 
 </main>
 
@@ -84,7 +124,7 @@
     	list-style-type: none;
     	margin: 0;
     	overflow: hidden;
-    	background-color: rgb(22, 187, 238);
+    	background-color: #5bc0de;
     	width: 100%
 	}
 
@@ -106,6 +146,23 @@
 
 	:global(a:hover:not(.active)){
 		background-color: rgb(42, 122, 243);
+		transition: 0.2s;
+	}
+
+	#btn{
+		display: block;
+		font-family: Comic Sans MS;
+		padding: 18px 55px;
+		text-decoration: none;
+		font-weight: 1000;
+		background-color: #5bc0de;
+		border: none;
+		color: rgba(236, 72, 72, 0.767);
+	}
+
+	#btn:hover{
+		background-color: rgb(42, 122, 243);
+		transition: 0.2s;
 	}
 
 	.multicolortext {
@@ -122,10 +179,14 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: 100%;
-		opacity: 0.125;
+		opacity: 0.25;
 		z-index: -1;
 	  }
 
-
+	  .cart{
+		  position: absolute;
+		  left: 90%;
+		  top: 5%;
+	  }
 
 </style>

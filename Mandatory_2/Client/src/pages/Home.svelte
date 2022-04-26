@@ -1,16 +1,32 @@
+<script>
+    import {notifications} from "../notifications.js"
+	import Toast from "./Toast.svelte"
+    import {clickOutside} from "../scripts/clickOutside.js"
+
+    /*async function status() {
+        const res = await fetch("/api/login");
+
+        console.log(res.status)
+    }*/
+
+</script>
+
+
+
 <h1 class="multicolortext">
     Velommen til KEAs online kiosk!
 </h1>
 
+<hr>
+
+
 <h3 class="multicolortext">
-    Surf thorugh all of our products so you can get whatever you feel like!
+    Gennemse vores produkter på siden "Produkter", eller læs mere om os på siden "Om os". 
 </h3>
 
 <div>
 <img src="/images/home.jpg" alt="Welcome"/>
 </div>
-
-
 
 
 
@@ -31,6 +47,12 @@
         -moz-background-clip: text;
         background-clip: text;
         color: transparent;
-      }
+        font-weight: 1500;
+    }
+
+    img{
+        height: 400px;
+        width: 600px;
+    }
       
 </style>

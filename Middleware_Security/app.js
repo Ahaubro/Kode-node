@@ -1,6 +1,7 @@
 import express from "express"; //TYPE i package.json = module "DEN HER MÅDE"
 import rateLimit from 'express-rate-limit'
 import helmet from "helmet";
+import path from "path"
 //const express = require("express");
 //const helmet = require("helmet")
 //const l = require("express-rate-limit")
@@ -10,6 +11,7 @@ const app = express();
 app.use(express.static("public"));
 
 app.use(helmet());
+
 
 
 
@@ -65,7 +67,8 @@ function ipLogger(req, res, next) {
 
 
 app.get("/clothes", (req, res) =>{
-    res.sendFile(__dirname + "/public/clothes.html")
+    res.sendFile(path.resolve("public/clothes.html")
+    )
 });
 
 
